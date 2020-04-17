@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>One Touch</title>
+    <!------my home_onetouch.css file-------------->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/mess_page.css')}}">
+    <!-----------for getting navigation dropdow icon ----------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----- for getting amatic sc font-style link------------->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <!------- for card design using  bootstrap classes----------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        .menu {
+            padding: 1.5rem;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!------Navbar using w3school website idea(responsive navbar)-->
+    <div class="topnav" id="myTopnav">
+        <a href="/" class="active"><b>Home</b></a>
+        <a href="/mess"><b>MESS</b></a>
+        <a href="/contact" target="_blank"><b>CONTACT US</b></a>
+        <a href="/about" target="_blank"><b>ABOUT US</b></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <!------Header designing------>
+    <div class="header" style="background:url('{{url_for('static',filename='image/background/back1.jpg')}}');background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;">
+        <h1><b>ONE TOUCH</b></h1>
+        <h3><b>BHILAI</b></h3>
+        <p><b>OPEN FROM 7AM TO 10PM</b></p>
+    </div>
+
+
+    <!-----------box(main item storing-mess,breakfast etc )------------->
+    <div class="menu">
+        <h3>THE MENU</h3>
+        <!-----row(display:flex)-------->
+        <div class="row">
+
+            <div class="column">
+
+                <!-------MESS TAB------------>
+                <button class="tablink" onclick="openPage('Home', this, 'tomato')" id="defaultOpen">Mess</button>
+                <button class="tablink" onclick="openPage('News', this, 'black')">Silver</button>
+                <button class="tablink" onclick="openPage('Contact', this,'black')">Platinum</button>
+                <button class="tablink" onclick="openPage('About', this, 'orange')">Gold</button>
+
+                <div id="Home" class="tabcontent">
+                    <h3>Mess</h3>
+                    <p>Good for pg Students who are tired of getting same kind of food everyday.
+                        press on next tabs to see what we are providing.
+                    </p>
+                    <a href="/mess_form" class="ref">Order Now</a>
+                </div>
+
+                <div id="News" class="tabcontent">
+                    <h3 class="text-dark">
+                        Silver
+                   <small class="text-dark" style="font-family: 'Fira Sans', sans-serif;">
+                       <mark>&#8377;2000</mark>
+                    </small>
+                    </h3>   
+                    <a href="/mess_form" class="btn btn-dark btn-lg mb-3" style="float: left;"> Order Now</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Day</th>
+                                    <th scope="col">Breakfast</th>
+                                    <th scope="col">Lunch</th>
+                                    <th scope="col">Dinner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for val in silver %}
+                                <tr>
+                                    <th scope="row">{{val.day}}</th>
+                                    <td>{{val.breakfast}}</td>
+                                    <td>{{val.lunch}}</td>
+                                    <td>{{val.dinner}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+                <div id="Contact" class="tabcontent">
+                    <h3 class="text-dark">
+                        Platinum
+                    <small class="text-dark" style="font-family: 'Fira Sans', sans-serif;">
+                       <mark>&#8377;2000</mark>
+                    </small>
+                    </h3>   
+                    <a href="/mess_form" class="btn btn-dark btn-lg mb-3" style="float: left;">Order Now</a>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Day</th>
+                                    <th scope="col">Breakfast</th>
+                                    <th scope="col">Lunch</th>
+                                    <th scope="col">Dinner</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for val in platinum %}
+                                <tr>
+                                    <th scope="row">{{val.day}}</th>
+                                    <td>{{val.breakfast}}</td>
+                                    <td>{{val.lunch}}</td>
+                                    <td>{{val.dinner}}</td>
+                                </tr>
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            
+
+            <div id="About" class="tabcontent">
+                <h3 class="text-dark">
+                    Gold
+                <small class="text-dark" style="font-family: 'Fira Sans', sans-serif;">
+                       <mark>&#8377;2000</mark>
+                    </small>
+                </h3>   
+                <a href="/mess_form" class="btn btn-dark btn-lg mb-3" style="float: left;">Order Now</a>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark">
+                        <thead>
+                            <tr>
+                                <th scope="col">Day</th>
+                                <th scope="col">Breakfast</th>
+                                <th scope="col">Lunch</th>
+                                <th scope="col">Dinner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for val in gold %}
+                                <tr>
+                                    <th scope="row">{{val.day}}</th>
+                                    <td>{{val.breakfast}}</td>
+                                    <td>{{val.lunch}}</td>
+                                    <td>{{val.dinner}}</td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!---------card(END)----------------- -->
+    </div>
+    <!--------row(end)------------------>
+    </div>
+    <!--------menu(end)------------------>
+
+    <!--------------FOOTER STARTING------------------------------------>
+    <footer>
+
+        <div class="icon-bar ">
+            <!----ICONS FROM W3 WEBSITES-->
+            <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google" target="_blank"><i class="fa fa-google"></i></a>
+            <br><br>
+
+            <!--------FOOT(display:flex;)----------------->
+            <div class="foot-flex contact-link">
+
+                <!------different blocks (addrs,contact,community,services)---------->
+                <div class="contact">
+                    <hr>
+                    <h3><u><b>ADDRESS:</b></u></h3>
+                    <p>30/9 RADHIKA NAGAR SUPELA BHILAI</p>
+
+                </div>
+                <div class="contact">
+                    <hr>
+                    <h3><u><b>CONTACT:</b></u></h3>
+                    <p>Whatsapp:<a href="https://api.whatsapp.com/send?phone=919557911883">9557911883</a></p>
+                <p>phoneNo:<a href="tel:955-791-1883">9557911883</a></p>
+                    <p>Gmail:<a href="mailto:onetouchbhilai@gmail.com?Subject=Hello%20again"
+                            target="_top">onetouchbhilai@gmail.com</a></p>
+                </div>
+<!--                <div class="contact">-->
+<!--                    <hr>-->
+<!--                    <h3><u><b>COMMUNITY:</b></u></h3>-->
+<!--                    <p><a href="https://www.facebook.com/OnetouchBhilai-103093194585503/" target="_blank">facebook</a></p>-->
+<!--                    <p><a href="#" target="_blank">instagram</a></p>-->
+<!--                   <p><a href="Twitter.com">Twitter</a></p>-->
+<!--                    <p>Gmail:<a href="onetouchbhilai@gmail.com?Subject=Hello%20again"-->
+<!--                            target="_top">onetouchbhilai@gmail.com</a></p>-->
+<!--                </div>-->
+                <div class="contact">
+                    <hr>
+                    <h3><u><b>SERVICES:</b></u></h3>
+                    <p><a href="/mess">mess</a></p>
+                    <p><a href="/mess">breakfast</a></p>
+                    <p><a href="/mess">dinner</a></p>
+                    <p><a href="/mess">lunch</a></p>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-------------------JAVA SCRIPT STARTS--------------------------------->
+    <script>
+
+        //Navbar using w3school website ideas(responsive navbar)////////////////////////////
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+        ///////////////////////////////////////////////////////////////////////////////
+
+        //tab using w3 how to make tabs
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+        //////////////////////////////////////////////////////////////////////////////
+
+    </script>
+</body>
+</html>

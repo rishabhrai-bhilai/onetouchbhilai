@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>One Touch</title>
+    <!------my home_onetouch.css file-------------->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+    <!-----------for getting navigation dropdow icon ----------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----- for getting amatic sc font-style link------------->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <!------- for card design using  bootstrap classes----------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- w3 school      -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+
+    <!------Navbar using w3school website idea(responsive navbar)-->
+    <div class="topnav" id="myTopnav">
+        <a href="/" class="active"><b>Home</b></a>
+        <a href="/mess"><b>MESS</b></a>
+        <a href="/contact"><b>CONTACT US</b></a>
+        <a href="/about"><b>ABOUT US</b></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">ONE TOUCH</h1>
+          <p class="lead">This Website is for bhilains by the bhilains.We make it easy for you to get good food easily at good price. </p>
+          <p></p>
+        </div>
+      </div>
+   
+ <!-- The Band Section -->
+ <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+    <h2 class="w3-wide">ABOUT US</h2>
+    <p class="w3-opacity"><i>We are Bhilains</i></p>
+    <p class="w3-justify">We are from bhilai,we know that how tough it is for a people to find out a good mess servies at affordable price in<mark>Bhilai</mark>.So we come up with a idea to help you to provide a good food.here we will try to provide you a variety of food which other mess services generally don't give it to you.initially we have launch three types of options.since we are new here we really like to know from you what we should provide you.you can send your suggestions to our contact us page.if you have any queries you can ask on that page or you can simply call us. </p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-third">
+        <p> <mark>Tasty</mark></p>
+        <img src="{{url_for('static',filename='image/font_image/robo_burger.jpg')}}" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+      </div>
+      <div class="w3-third">
+        <p><mark>Yummy</mark></p>
+        <img src="{{url_for('static',filename='image/background/back1.jpg')}}" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+      </div>
+      <div class="w3-third">
+        <p><mark>Healthy</mark></p>
+        <img src="{{url_for('static',filename='image/font_image/mess.jpg')}}" class="w3-round" alt="Random Name" style="width:60%">
+      </div>
+    </div>
+  </div>
+
+
+<!--------------FOOTER STARTING------------------------------------>
+<footer>
+
+    <div class="icon-bar "><!----ICONS FROM W3 WEBSITES-->
+        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google"><i class="fa fa-google"></i></a>
+        <br><br>
+
+        <!--------FOOT(display:flex;)----------------->
+        <div class="foot-flex contact-link">
+
+            <!------different blocks (addrs,contact,community,services)---------->
+            <div class="contact">
+
+                <h3><u><b>ADDRESS:</b></u></h3>
+                <p>30/9 RADHIKA NAGAR SUPELA BHILAI</p>
+
+            </div>
+            <div class="contact">
+                
+                <h3><u><b>CONTACT:</b></u></h3>
+                <p>Whatsapp:<a href="https://api.whatsapp.com/send?phone=919557911883">9557911883</a></p>
+                <p>phoneNo:<a href="tel:955-791-1883">9557911883</a></p>
+                <p>Gmail:<a href="mailto:onetouchbhilai@gmail.com?Subject=Hello%20again" target="_top">onetouchbhilai@gmail.com</a></p>
+            </div>
+<!--            <div class="contact">-->
+<!--                -->
+<!--                <h3><u><b>COMMUNITY:</b></u></h3>-->
+<!--                <p><a href="https://www.facebook.com/OnetouchBhilai-103093194585503/">facebook</a></p>-->
+<!--                <p><a href="#">instagram</a></p>-->
+<!--                <p><a href="#">Twitter</a></p>-->
+<!--                <p>Gmail:<a href="mailto:onetouchbhilai@gmail.com?Subject=Hello%20again" target="_top">onetouchbhilai@gmail.com</a></p>-->
+<!--            </div>-->
+            <div class="contact">
+                
+                <h3><u><b>SERVICES:</b></u></h3>
+                <p><a href="/mess">mess</a></p>
+                <p><a href="/mess">breakfast</a></p>
+                <p><a href="/mess">dinner</a></p>
+                <p><a href="/mess">lunch</a></p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!-------------------JAVA SCRIPT STARTS--------------------------------->
+    <script>
+
+        //Navbar using w3school website ideas(responsive navbar)
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

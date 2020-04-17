@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form</title>
+  <!-------bootstrap css link------------->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-------bootstrap js link-------------->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+    <!-- header and footer  -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/home.css')}}">
+<script src="{{url_for('static',filename='javascript/mess_forms.js')}}"></script>
+
+</head>
+
+<body class="bg-secondary">
+
+
+
+    <!------Navbar using w3school website idea(responsive navbar)-->
+    <div class="topnav" id="myTopnav">
+        <a href="/" class="active"><b>Home</b></a>
+        <a href="/mess"><b>MESS</b></a>
+<!--        <a href="/contact"><b>CONTACT US</b></a>-->
+<!--        <a href="/about"><b>ABOUT US</b></a>-->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+
+  <div class="container-fluid bg-dark text-white text-center py-5">
+    <h1 class="text-uppercase display-4">one touch cart</h1>
+  </div>
+  <div class="container bg-dark text-white mt-2 mb-5 p-5">
+    <h3 class=" text-center mb-5">Mess-Details</h3>
+    <form action="/mess_form" method="POST">
+      <div>
+        <h3 >Form</h3>
+        <br>
+
+        <div class="form-group ">
+          <label for="fname">F-Name</label>
+          <input type="text" name="mess_cart_name" class="form-control" id="fname" maxlength="50" placeholder="First name" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" name="mess_cart_address" class="form-control" id="inputAddress" maxlength="70" placeholder="your current address" required>
+      </div>
+      <div class="form-group">
+        <label for="inputPhoneno">Phone Number</label>
+        <input type="tel" name="mess_cart_phone_no" class="form-control" maxlength="10" id="inputPhoneno" pattern="[0-9]{10}" placeholder="enter 10 numbers only"
+          required>
+      </div>
+
+
+      <label>Select Which Offer You Want? </label><br>
+            <input type="radio" name="offer" id="offer-no1" class="radio" value="offer-1" required>OFFER-1 <br>
+            <input type="radio" name="offer" id="offer-no2" class="radio" value="offer-2">OFFER-2 <br>
+            <input type="radio" name="offer" id="offer-no3" class="radio" value="offer-3">OFFER-3 <br><br>
+
+
+
+
+            <div class="form-group ">
+              <label for="itemtotal">Total Bill </label>
+              <input type="text" class="form-control" id="itemtotal" name="itemtotal" placeholder="total_bill" value="0" readonly>
+            </div><br>
+
+            <input type="hidden" id="itemJson" name="jsonitem" value="0">
+
+      <button type="submit" onclick="myFun()" class="btn btn-primary btn-lg mt-2">Submit</button>
+    </form>
+  </div>
+
+
+
+  
+  
+
+
+  <script>
+      function myFun()
+        {
+            localStorage.clear();
+        }
+
+
+  </script>
+</body>
+
+</html>

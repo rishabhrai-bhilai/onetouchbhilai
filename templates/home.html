@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>One Touch</title>
+    <!------my home_onetouch.css file-------------->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <!-----------for getting navigation dropdow icon ----------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!----- for getting amatic sc font-style link------------->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <!------- for card design using  bootstrap classes----------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <!------Navbar using w3school website idea(responsive navbar)-->
+    <div class="topnav" id="myTopnav">
+        <a href="/" class="active"><b>Home</b></a>
+        <a href="/mess"><b>MESS</b></a>
+        <a href="/contact" target="_blank"><b>CONTACT US</b></a>
+        <a href="/about" target="_blank"><b>ABOUT US</b></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <!------Header designing------>
+    <div class="header" style="background:url('{{url_for('static',filename='image/background/back1.jpg')}}');background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;" >
+        <h1><b>ONE TOUCH</b></h1>
+        <h3><b>BHILAI</b></h3>
+        <p><b>OPEN FROM 7AM TO 10PM</b></p>
+    </div>
+    <!-----------box(main item storing-mess,breakfast etc )------------->
+    <div class="menu">
+        <h3>THE MENU</h3>
+        <!-----row(display:flex)-------->
+        <div class="row">
+            <!-------card1------------->
+            <div class="card column">
+                <img src="{{url_for('static',filename='image/font_image/mess.jpg')}}" class="card-img-top img-width" alt="MESS">
+                <div class="card-body">
+                    <h5 class="card-title">Mess services</h5>
+                    <p class="card-text">We know that how tough it is for a People's,specially Students to find out a good mess servies at affordable price in<mark>Bhilai</mark>.So we come up with a idea to help you to provide a good food.here we will try to provide you a variety of food which other mess services generally don't give it to you.initially we have launch three types of options.</p>
+                    <a href="/mess" class="btn btn-primary " id="aa">Book now</a>
+                </div>
+            </div>
+            <!---------card(END)------------------->
+        </div>
+        <!--------row(end)------------------>
+    </div>
+    <!--------menu(end)------------------>
+<!--------------FOOTER STARTING------------------------------------>
+<footer>
+    <div class="icon-bar "><!----ICONS FROM W3 WEBSITES-->
+        <a href="#" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="#" class="instagram" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="#" class="google" target="_blank"><i class="fa fa-google"></i></a>
+        <br><br>
+        <!--------FOOT(display:flex;)----------------->
+        <div class="foot-flex contact-link">
+            <!------different blocks (addrs,contact,community,services)---------->
+            <div class="contact">
+                <hr>
+                <h3><u><b>ADDRESS:</b></u></h3>
+                <p>30/9 RADHIKA NAGAR SUPELA BHILAI</p>
+            </div>
+            <div class="contact">
+                <hr>
+                <h3><u><b>CONTACT:</b></u></h3>
+                <p>Whatsapp:<a href="https://api.whatsapp.com/send?phone=919557911883">9557911883</a></p>
+                <p>phoneNo:<a href="tel:955-791-1883">9557911883</a></p>
+                <p>Gmail:<a href="mailto:onetouchbhilai@gmail.com?Subject=Hello%20again" target="_top">onetouchbhilai@gmail.com</a></p>
+
+            </div>
+<!--            <div class="contact">-->
+<!--                <hr>-->
+<!--                <h3><u><b>COMMUNITY:</b></u></h3>-->
+<!--                <p><a href="https://www.facebook.com/OnetouchBhilai-103093194585503/" target="_blank">facebook</a></p>-->
+<!--                <p><a href="#" target="_blank">instagram</a></p>-->
+<!--                <p><a href="Twitter.com">Twitter</a></p>-->
+<!--                <p>Gmail:<a href="mailto:onetouchbhilai@gmail.com?Subject=Hello%20again" target="_top">onetouchbhilai@gmail.com</a></p>-->
+<!--            </div>-->
+            <div class="contact">
+                <hr>
+                <h3><u><b>SERVICES:</b></u></h3>
+                <p><a href="/mess">mess</a></p>
+                <p><a href="/mess">breakfast</a></p>
+                <p><a href="/mess">dinner</a></p>
+                <p><a href="/mess">lunch</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-------------------JAVA SCRIPT STARTS--------------------------------->
+    <script>
+        // Navbar using w3school website ideas(responsive navbar)
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+</body>
+</html>
